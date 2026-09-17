@@ -121,11 +121,17 @@ def run_mobile_tests():
             assert mod2_cards == 3, f"Expected 3 cards in Module 2, found {mod2_cards}"
             print("  ✓ Module 2 Filter Tab selected (3 cards rendered)")
 
+            page.locator("#tab-6").click()
+            page.wait_for_timeout(200)
+            mod6_cards = page.locator("#levelsContainer > div").count()
+            assert mod6_cards == 1, f"Expected 1 card in Module 6, found {mod6_cards}"
+            print("  ✓ Module 6 Filter Tab selected (1 card rendered)")
+
             page.locator("#tab-ALL").click()
             page.wait_for_timeout(200)
             all_cards = page.locator("#levelsContainer > div").count()
-            assert all_cards == 12, f"Expected 12 cards in ALL tab, found {all_cards}"
-            print("  ✓ All 12 Levels Tab restored (12 cards rendered)")
+            assert all_cards == 13, f"Expected 13 cards in ALL tab, found {all_cards}"
+            print("  ✓ All 13 Levels Tab restored (13 cards rendered)")
 
             # -------------------------------------------------------------
             # TEST 6: Mobile Touch Navigation to Lesson & Checkpoint Quiz
@@ -192,6 +198,16 @@ def run_mobile_tests():
                 l8_overflow = page.evaluate("() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth })")
                 assert l8_overflow["scrollWidth"] <= l8_overflow["innerWidth"], "Level 8 S&P table caused horizontal overflow"
                 print("  ✓ Level 8 S&P Matrix table scrolls internally with 0 page-wide horizontal blowout")
+
+                page.locator("button:has-text('← Back to Roadmap')").click()
+                page.wait_for_timeout(200)
+
+                # Level 13: Grand Capstone Revision
+                page.locator("#levelsContainer > div").nth(12).click()
+                page.wait_for_timeout(400)
+                l13_overflow = page.evaluate("() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth })")
+                assert l13_overflow["scrollWidth"] <= l13_overflow["innerWidth"], "Level 13 Capstone caused horizontal overflow"
+                print("  ✓ Level 13 Grand Capstone fits within 375px viewport with 0 page-wide blowout")
 
                 page.locator("button:has-text('← Back to Roadmap')").click()
                 page.wait_for_timeout(200)
