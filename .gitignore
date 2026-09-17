@@ -1,0 +1,12 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Test Outputs & Artifacts
+test-results/
+*.pyc
+__pycache__/
+
+# Scratch / Local Environment
+.vscode/
+.idea/

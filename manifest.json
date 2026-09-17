@@ -1,0 +1,42 @@
+{
+  "name": "Oxane Credit Mastery | Private Credit Analyst Academy",
+  "short_name": "CreditMastery",
+  "description": "Master private debt, structured credit underwriting, and financial modeling with zero blind formula memorization.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070F1E",
+  "theme_color": "#070F1E",
+  "lang": "en",
+  "categories": [
+    "finance",
+    "education",
+    "business"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
